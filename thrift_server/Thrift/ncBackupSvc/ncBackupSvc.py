@@ -2475,7 +2475,7 @@ class Processor(Iface, TProcessor):
     result = microprobe_result()
     try:
       self._handler.microprobe()
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("microprobe", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2488,9 +2488,9 @@ class Processor(Iface, TProcessor):
     iprot.readMessageEnd()
     result = get_all_jobs_result()
     try:
-      result.success = self._handler.get_all_jobs()
-    except ncException.ttypes.ncException, error:
-      result.error = error
+        result.success = self._handler.get_all_jobs()
+    except ncException.ttypes.ncException as error:
+        result.error = error
     oprot.writeMessageBegin("get_all_jobs", TMessageType.REPLY, seqid)
     result.write(oprot)
     oprot.writeMessageEnd()
@@ -2503,7 +2503,7 @@ class Processor(Iface, TProcessor):
     result = get_all_jobs_for_ams_result()
     try:
       result.success = self._handler.get_all_jobs_for_ams()
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_all_jobs_for_ams", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2517,7 +2517,7 @@ class Processor(Iface, TProcessor):
     result = get_task_log_message_by_id_result()
     try:
       result.success = self._handler.get_task_log_message_by_id(args.instanceId)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_task_log_message_by_id", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2531,7 +2531,7 @@ class Processor(Iface, TProcessor):
     result = get_jobs_log_for_ams_result()
     try:
       result.success = self._handler.get_jobs_log_for_ams()
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_jobs_log_for_ams", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2545,7 +2545,7 @@ class Processor(Iface, TProcessor):
     result = get_job_info_by_id_result()
     try:
       result.success = self._handler.get_job_info_by_id(args.jobId)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_job_info_by_id", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2559,7 +2559,7 @@ class Processor(Iface, TProcessor):
     result = get_all_clean_jobs_result()
     try:
       result.success = self._handler.get_all_clean_jobs()
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_all_clean_jobs", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2573,7 +2573,7 @@ class Processor(Iface, TProcessor):
     result = get_job_result()
     try:
       result.success = self._handler.get_job(args.jobId)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_job", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2587,7 +2587,7 @@ class Processor(Iface, TProcessor):
     result = update_jobs_nstart_time_result()
     try:
       self._handler.update_jobs_nstart_time(args.jobs_params)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("update_jobs_nstart_time", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2601,7 +2601,7 @@ class Processor(Iface, TProcessor):
     result = get_jobs_like_for_schedule_result()
     try:
       result.success = self._handler.get_jobs_like_for_schedule(args.jobName, args.clientIds)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_jobs_like_for_schedule", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2615,7 +2615,7 @@ class Processor(Iface, TProcessor):
     result = get_jobs_for_schedule_by_ids_result()
     try:
       result.success = self._handler.get_jobs_for_schedule_by_ids(args.jobIds)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_jobs_for_schedule_by_ids", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2629,7 +2629,7 @@ class Processor(Iface, TProcessor):
     result = commit_job_result()
     try:
       self._handler.commit_job(args.jobId, args.customer, args.backupType, args.desc, args.is_auto_execute, args.nstart_time, args.strategy_id)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("commit_job", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2643,7 +2643,7 @@ class Processor(Iface, TProcessor):
     result = get_support_backup_type_result()
     try:
       result.success = self._handler.get_support_backup_type(args.job_id)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_support_backup_type", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2657,7 +2657,7 @@ class Processor(Iface, TProcessor):
     result = get_jobs_by_instance_name_result()
     try:
       result.success = self._handler.get_jobs_by_instance_name(args.instance_name)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_jobs_by_instance_name", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2671,7 +2671,7 @@ class Processor(Iface, TProcessor):
     result = get_jobs_by_fpguid_result()
     try:
       result.success = self._handler.get_jobs_by_fpguid(args.fpGuid)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_jobs_by_fpguid", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2685,7 +2685,7 @@ class Processor(Iface, TProcessor):
     result = client_exsit_job_result()
     try:
       result.success = self._handler.client_exsit_job(args.clientId)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("client_exsit_job", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2699,7 +2699,7 @@ class Processor(Iface, TProcessor):
     result = get_jobs_by_cloud_storage_id_result()
     try:
       result.success = self._handler.get_jobs_by_cloud_storage_id(args.cloud_storage_id)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_jobs_by_cloud_storage_id", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2713,7 +2713,7 @@ class Processor(Iface, TProcessor):
     result = get_db_job_instances_result()
     try:
       result.success = self._handler.get_db_job_instances(args.request)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_db_job_instances", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2727,7 +2727,7 @@ class Processor(Iface, TProcessor):
     result = get_db_job_mappings_result()
     try:
       result.success = self._handler.get_db_job_mappings(args.request)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_db_job_mappings", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2741,7 +2741,7 @@ class Processor(Iface, TProcessor):
     result = get_anyshare_datasource_job_names_result()
     try:
       result.success = self._handler.get_anyshare_datasource_job_names(args.request)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_anyshare_datasource_job_names", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2755,7 +2755,7 @@ class Processor(Iface, TProcessor):
     result = get_jobs_by_filter_result()
     try:
       result.success = self._handler.get_jobs_by_filter(args.filter_request)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_jobs_by_filter", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2769,7 +2769,7 @@ class Processor(Iface, TProcessor):
     result = get_cloud_backup_jobs_result()
     try:
       result.success = self._handler.get_cloud_backup_jobs(args.query_all)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_cloud_backup_jobs", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2797,7 +2797,7 @@ class Processor(Iface, TProcessor):
     result = remove_all_jobs_by_client_ids_result()
     try:
       result.success = self._handler.remove_all_jobs_by_client_ids(args.clientIds)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("remove_all_jobs_by_client_ids", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2811,7 +2811,7 @@ class Processor(Iface, TProcessor):
     result = get_datasource_jobs_result()
     try:
       result.success = self._handler.get_datasource_jobs(args.request)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_datasource_jobs", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2825,7 +2825,7 @@ class Processor(Iface, TProcessor):
     result = remove_all_jobs_by_vplatform_ids_result()
     try:
       result.success = self._handler.remove_all_jobs_by_vplatform_ids(args.vplatformIds)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("remove_all_jobs_by_vplatform_ids", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2839,7 +2839,7 @@ class Processor(Iface, TProcessor):
     result = remove_all_jobs_by_backup_media_and_username_result()
     try:
       result.success = self._handler.remove_all_jobs_by_backup_media_and_username(args.usernames, args.cloud_storage_name)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("remove_all_jobs_by_backup_media_and_username", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2853,7 +2853,7 @@ class Processor(Iface, TProcessor):
     result = remove_all_jobs_by_anyshare_resources_result()
     try:
       self._handler.remove_all_jobs_by_anyshare_resources(args.anyshare_resource_ids)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("remove_all_jobs_by_anyshare_resources", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2867,7 +2867,7 @@ class Processor(Iface, TProcessor):
     result = get_datasource_by_client_result()
     try:
       result.success = self._handler.get_datasource_by_client(args.client_id, args.job_is_backup)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_datasource_by_client", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2881,7 +2881,7 @@ class Processor(Iface, TProcessor):
     result = add_schedule_jobs_result()
     try:
       result.success = self._handler.add_schedule_jobs(args.ids)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("add_schedule_jobs", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2895,7 +2895,7 @@ class Processor(Iface, TProcessor):
     result = modify_schedule_jobs_result()
     try:
       result.success = self._handler.modify_schedule_jobs(args.ids)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("modify_schedule_jobs", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2909,7 +2909,7 @@ class Processor(Iface, TProcessor):
     result = get_schedule_jobs_result()
     try:
       result.success = self._handler.get_schedule_jobs()
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_schedule_jobs", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2923,7 +2923,7 @@ class Processor(Iface, TProcessor):
     result = online_reload_result()
     try:
       self._handler.online_reload(args.ip)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("online_reload", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2937,7 +2937,7 @@ class Processor(Iface, TProcessor):
     result = offline_reload_result()
     try:
       self._handler.offline_reload(args.ip)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("offline_reload", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2951,7 +2951,7 @@ class Processor(Iface, TProcessor):
     result = migrate_node_vibration_result()
     try:
       self._handler.migrate_node_vibration(args.ip_to_state)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("migrate_node_vibration", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2965,7 +2965,7 @@ class Processor(Iface, TProcessor):
     result = app_ctrl_push_result()
     try:
       self._handler.app_ctrl_push(args.req)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("app_ctrl_push", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2979,7 +2979,7 @@ class Processor(Iface, TProcessor):
     result = get_data_for_ams_result()
     try:
       result.success = self._handler.get_data_for_ams(args.kwargs)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_data_for_ams", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -2993,7 +2993,7 @@ class Processor(Iface, TProcessor):
     result = is_exists_running_job_on_client_result()
     try:
       result.success = self._handler.is_exists_running_job_on_client(args.clientId)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("is_exists_running_job_on_client", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -3007,7 +3007,7 @@ class Processor(Iface, TProcessor):
     result = client_exsit_volume_job_result()
     try:
       result.success = self._handler.client_exsit_volume_job(args.clientId)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("client_exsit_volume_job", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -3021,7 +3021,7 @@ class Processor(Iface, TProcessor):
     result = do_operation_from_ams_result()
     try:
       result.success = self._handler.do_operation_from_ams(args.target, args.method, args.kwargs)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("do_operation_from_ams", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -3035,7 +3035,7 @@ class Processor(Iface, TProcessor):
     result = get_jobs_status_by_anyshare_resources_result()
     try:
       result.success = self._handler.get_jobs_status_by_anyshare_resources(args.ids)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_jobs_status_by_anyshare_resources", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -3049,7 +3049,7 @@ class Processor(Iface, TProcessor):
     result = get_jobs_by_sourceId_result()
     try:
       result.success = self._handler.get_jobs_by_sourceId(args.sourceType, args.svcType, args.sourceId, args.relation)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_jobs_by_sourceId", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -3063,7 +3063,7 @@ class Processor(Iface, TProcessor):
     result = GetKeyMaterial_result()
     try:
       result.success = self._handler.GetKeyMaterial(args.KeyId, args.DeviceId)
-    except ncException.ttypes.ncException, err:
+    except ncException.ttypes.ncException as err:
       result.err = err
     oprot.writeMessageBegin("GetKeyMaterial", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -3077,7 +3077,7 @@ class Processor(Iface, TProcessor):
     result = get_dict_export_result()
     try:
       result.success = self._handler.get_dict_export(args.body, args.jobInstanceId, args.user)
-    except ncException.ttypes.ncException, err:
+    except ncException.ttypes.ncException as err:
       result.err = err
     oprot.writeMessageBegin("get_dict_export", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -3091,7 +3091,7 @@ class Processor(Iface, TProcessor):
     result = get_jobs_by_datasource_result()
     try:
       result.success = self._handler.get_jobs_by_datasource(args.datasource, args.clientId, args.dbRunUserName)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_jobs_by_datasource", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -3105,7 +3105,7 @@ class Processor(Iface, TProcessor):
     result = get_backup_jobs_by_node_ip_result()
     try:
       result.success = self._handler.get_backup_jobs_by_node_ip(args.node_ip)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_backup_jobs_by_node_ip", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -3119,7 +3119,7 @@ class Processor(Iface, TProcessor):
     result = get_backup_jobs_by_volume_id_result()
     try:
       result.success = self._handler.get_backup_jobs_by_volume_id(args.volume_id)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_backup_jobs_by_volume_id", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -3133,7 +3133,7 @@ class Processor(Iface, TProcessor):
     result = check_user_has_data_result()
     try:
       result.success = self._handler.check_user_has_data(args.user_list)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("check_user_has_data", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -3147,7 +3147,7 @@ class Processor(Iface, TProcessor):
     result = get_job_count_info_result()
     try:
       result.success = self._handler.get_job_count_info(args.startTime, args.userId)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_job_count_info", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -3161,7 +3161,7 @@ class Processor(Iface, TProcessor):
     result = get_strategy_export_result()
     try:
       result.success = self._handler.get_strategy_export(args.strategy_ids, args.user_name)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("get_strategy_export", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -3175,7 +3175,7 @@ class Processor(Iface, TProcessor):
     result = remove_all_jobs_by_cloud_storage_name_and_username_result()
     try:
       result.success = self._handler.remove_all_jobs_by_cloud_storage_name_and_username(args.usernames, args.cloud_storage_name)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("remove_all_jobs_by_cloud_storage_name_and_username", TMessageType.REPLY, seqid)
     result.write(oprot)
@@ -3189,7 +3189,7 @@ class Processor(Iface, TProcessor):
     result = delete_extra_resource_by_username_result()
     try:
       self._handler.delete_extra_resource_by_username(args.user_names)
-    except ncException.ttypes.ncException, error:
+    except ncException.ttypes.ncException as error:
       result.error = error
     oprot.writeMessageBegin("delete_extra_resource_by_username", TMessageType.REPLY, seqid)
     result.write(oprot)

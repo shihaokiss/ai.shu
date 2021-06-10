@@ -12,7 +12,7 @@ import select
 import threading
 from six.moves import queue
 import errno
-from django.db import close_old_connections
+# from django.db import close_old_connections
 
 from ncBackupSvc import ncBackupSvc
 from server_dir.processor import BackupSvcProcessor
@@ -99,9 +99,9 @@ class TThreadPoolServer(TServer):
         oprot = self.outputProtocolFactory.getProtocol(otrans)
         try:
             while True:
-                close_old_connections()
+                # close_old_connections()
                 self.processor.process(iprot, oprot)
-                close_old_connections()
+                # close_old_connections()
         except TTransport.TTransportException:
             pass
         except Exception as x:
@@ -188,7 +188,7 @@ class ThriftServer(object):
         #     ips.append(loipv4)
         # if is_ipv6(SELF_IP_EX) and loipv6 not in ips:
         #     ips.append(loipv6)
-        ips = ['192.168.1.3', '127.0.0.1']
+        ips = ['192.168.24.1', '127.0.0.1']
 
         self.logger.info("thrift server ip list: %s" % ips)
         lsockets = []
@@ -253,7 +253,7 @@ class ThriftServer(object):
 
 
 def start_thrift_server():
-    ThriftServer().start(10)
+    ThriftServer().start(1)
 
 
 if __name__ == '__main__':
