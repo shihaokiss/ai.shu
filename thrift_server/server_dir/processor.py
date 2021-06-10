@@ -20,3 +20,17 @@ class BackupSvcProcessor(Iface):
             success=1,
             running=1,
         )
+
+    def get_support_backup_type(self, job_id):
+        """
+        获取支持备份类型列表
+        """
+
+        return [111, 222, 333]
+
+    def check_user_has_data(self, user_list):
+        """
+        获取有数据的任务列表
+        """
+
+        return ["aaa", "bbb", "ccc"]

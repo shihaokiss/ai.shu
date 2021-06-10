@@ -5,11 +5,11 @@ from client import ThriftClient
 from ncBackupSvc import ncBackupSvc
 
 
-def get_job_count():
+def get_support_backup_type():
     thrift_client = ThriftClient('192.168.1.3', 8888)
-    job_count_info = thrift_client.request(ncBackupSvc, 'get_job_count_info', 10000, 'xxxx')
-    print(job_count_info)
+    type_list = thrift_client.request(ncBackupSvc, 'get_support_backup_type', 'xxxx')
+    print(type_list)
 
 
 if __name__ == "__main__":
-    get_job_count()
+    get_support_backup_type()
