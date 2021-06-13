@@ -17,7 +17,7 @@ class BackupSvcProcessor(Iface):
 
         return ncBackupJobCountInfo(
             failed=1,
-            success=1,
+            success=0,
             running=1,
         )
 
