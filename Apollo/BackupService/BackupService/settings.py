@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'BackupService.urls'
+ROOT_URLCONF = 'BackupService.web.urls'
 
 TEMPLATES = [
     {
@@ -133,3 +133,12 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SELF_IP = '192.168.24.1'
+PORTS = {
+    'BackupService': {
+        'http': 8000,
+        'thrift': 8001,
+        'epms': 8002
+    }
+}

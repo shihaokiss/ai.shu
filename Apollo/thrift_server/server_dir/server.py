@@ -167,7 +167,7 @@ class ThriftServer(object):
     def __init__(self,
                  svc_processer=None,
                  thrift_class=ncBackupSvc,
-                 port=8888):
+                 port=8001):
 
         self._port = port
         self._handler = svc_processer() if svc_processer else None
@@ -188,7 +188,7 @@ class ThriftServer(object):
         #     ips.append(loipv4)
         # if is_ipv6(SELF_IP_EX) and loipv6 not in ips:
         #     ips.append(loipv6)
-        ips = ['192.168.1.3', '127.0.0.1']
+        ips = ['192.168.24.1', '127.0.0.1']
 
         self.logger.info("thrift server ip list: %s" % ips)
         lsockets = []
